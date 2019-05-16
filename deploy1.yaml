@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hwdeployment
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: hwpod
+  template:
+    metadata:
+      labels:
+        app: hwpod
+    spec:
+      containers:
+      - name: helloworldk8sdemo
+        image: cciturria/helloworldk8sdemo
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
